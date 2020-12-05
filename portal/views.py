@@ -124,6 +124,8 @@ def authcallback():
         return redirect(url_for('home'))
 
     # Set up our Globus Auth/OAuth2 state
+    # AUTHCALLBACK_SCHEME="https" allows portal to run behind SSL-terminating
+    # reverse proxy or ingress.
     redirect_uri = url_for(
         'authcallback',
         _external=True,
